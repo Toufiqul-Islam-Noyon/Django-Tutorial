@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>  T IN </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Text Utilize</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="{% url 'analyze' %}">Analyze Text</a>
+                <a class="nav-item nav-link" href="{% url 'about'%}">About Us</a>
+                <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </div>
+            </div>
+
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+
+          </nav>
+
+          <div class="container">
+
+            <form action="/analyze" method="POST"> 
+              {% csrf_token %}
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Example textarea</label>
+                  <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+
+                <div class="custom-control custom-switch">
+                    <input name = 'check' type="checkbox" class="custom-control-input" id="customSwitch1">
+                    <label class="custom-control-label" for="customSwitch1">Remove Punctuations</label>
+                </div>
+
+                <div class="custom-control custom-switch">
+                  <input name = 'check2' type="checkbox" class="custom-control-input" id="customSwitch2">
+                  <label class="custom-control-label" for="customSwitch2">Uppercase</label>
+              </div>
+
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+
+            </form>
+
+          </div>
+
+
+    </body>
+</html>
+
+
